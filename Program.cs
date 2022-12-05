@@ -12,11 +12,25 @@ using static System.Console;
 
 Clear();
 
-
 string[] EnterArray()
 {
-    Write("Введите значения через пробел: ");
+    Console.Write("Введите значения через пробел: ");
     return ReadLine().Split(" ");
 }
 
+int GetLengthArray(string[] enter, int n)
+{
+    int count = 0;
+    for (int i = 0; i < enter.Length; i++)
+    {
+        if (enter[i].Length <= n)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
 string[] array = EnterArray();
+int count = GetLengthArray(array, 3);
+Console.Write(count);
