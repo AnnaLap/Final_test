@@ -31,6 +31,21 @@ int GetLengthArray(string[] enter, int n)
     return count;
 }
 
+string[] ChooseLessN(string[] enter, int n)
+{
+    string[] exit = new string[GetLengthArray(enter, n)];
+
+    for (int i = 0, j = 0; i < enter.Length; i++)
+    {
+        if (enter[i].Length <= n)
+        {
+            exit[j] = enter[i];
+            j++;
+        }
+    }
+    return exit;
+}
+
 string[] array = EnterArray();
-int count = GetLengthArray(array, 3);
-Console.Write(count);
+string[] result = ChooseLessN(array, 3);
+WriteLine($"[{string.Join(", ", array)}] -> [{string.Join(", ", result)}]");
